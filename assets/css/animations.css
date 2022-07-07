@@ -1,5 +1,3 @@
-@import url(./variables.css);
-
 @keyframes change-brackground {
   0% {
     background-color: var(--default-color);
