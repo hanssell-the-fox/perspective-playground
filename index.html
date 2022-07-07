@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS3 Perspective Playground</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script
+      src="https://unpkg.com/css-doodle@0.6.1/css-doodle.min.js"
+      defer
+    ></script>
+    <script src="/assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="title">CSS3 <span>Perspective</span> Playground</h1>
+      <main>
+        <section class="settings">
+          <div>
+            <label>perspective: {{ perspective }}px;</label>
+            <input
+              class="setting"
+              type="range"
+              min="0"
+              max="999"
+              v-model="perspective"
+            />
+
+            <label>rotateX: {{ rotateX }}deg; </label>
+            <input
+              class="setting"
+              type="range"
+              min="-180"
+              max="180"
+              v-model="rotateX"
+            />
+
+            <label>rotateY: {{ rotateY }}deg; </label>
+            <input
+              class="setting"
+              type="range"
+              min="-180"
+              max="180"
+              v-model="rotateY"
+            />
+
+            <label>rotateZ: {{ rotateZ }}deg; </label>
+            <input
+              class="setting"
+              type="range"
+              min="-180"
+              max="180"
+              v-model="rotateZ"
+            />
+
+            <div class="button-group">
+              <button
+                id="reset-button"
+                title="Reset to default"
+                @click.prevent="reset"
+              >
+                Reset
+              </button>
+              <button
+                id="copy-button"
+                title="Copy to clipboard"
+                @click.prevent="copy"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="output">
+          <div class="container">
+            <div class="box" :style="box"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <css-doodle>
+      :doodle { @grid: 1x3 / 100vmax; position: absolute; top: 0; left: 0;
+      z-index: -1; } will-change: transform; @size: 100% 100%; position:
+      absolute; background: @m(100, ( linear-gradient(transparent, @p(
+      #FB3569@repeat(2, @p([0-9a-f])), #AB129E@repeat(2, @p([0-9a-f])),
+      #10CCB4@repeat(2, @p([0-9a-f])), #FFFDE1@repeat(2, @p([0-9a-f])) )) @r(0%,
+      100%) @r(0%, 100%) / @r(1px, 5px) @r(18vmin) no-repeat )); animation: fall
+      @r(50s, 60s) linear calc(-60s / @size() * @i()) infinite; @keyframes fall
+      { from { transform: translateY(-100%) } to { transform: translateY(100%) }
+      }
+    </css-doodle>
+  </body>
+</html>

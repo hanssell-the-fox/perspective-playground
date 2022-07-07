@@ -1,0 +1,15 @@
+:root {
+  --default-color: #8d81f3;
+  --secondary-color: #fb3569;
+  --emphasys-color: #10ccb4;
+  --background-color: #1f1729;
+
+  --button-background: #ab129e;
+  --button-color: white;
+
+  --slider-border: black;
+  --slider-thumb-shadow: black;
+  --slider-thumb-border: purple;
+  --slider-thumb-background: purple;
+  --border-size: 0.3rem;
+}
